@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_elements_duty_and_roles",
+  "info": {
+    "displayName": "Duty&Role",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

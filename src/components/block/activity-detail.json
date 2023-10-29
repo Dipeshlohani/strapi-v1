@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_block_activity_details",
+  "info": {
+    "displayName": "ActivityDetail"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "img_url": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

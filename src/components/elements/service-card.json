@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_service_cards",
+  "info": {
+    "displayName": "ServiceCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

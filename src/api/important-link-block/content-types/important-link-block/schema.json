@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "important_link_blocks",
+  "info": {
+    "singularName": "important-link-block",
+    "pluralName": "important-link-blocks",
+    "displayName": "ImportantLinkBlock"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ImportantLinkBlock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.important-link"
+    }
+  }
+}

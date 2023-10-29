@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_medias",
+  "info": {
+    "singularName": "our-media",
+    "pluralName": "our-medias",
+    "displayName": "OurMedia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
+    }
+  }
+}
