@@ -764,7 +764,9 @@ export interface ApiDashboardDashboard extends Schema.CollectionType {
   };
   attributes: {
     corousel: Attribute.Component<'elements.corousel', true>;
-    services: Attribute.Component<'elements.service-card', true>;
+    important_link: Attribute.Component<'elements.important-link', true>;
+    media: Attribute.Component<'elements.our-media', true>;
+    about_us: Attribute.Component<'elements.about-us-card'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -836,6 +838,7 @@ export interface ApiDocumentCategoryDocumentCategory
   attributes: {
     name: Attribute.String;
     slug: Attribute.UID;
+    document: Attribute.Component<'elements.document', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -891,12 +894,12 @@ export interface ApiOurMediaOurMedia extends Schema.SingleType {
     singularName: 'our-media';
     pluralName: 'our-medias';
     displayName: 'OurMedia';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

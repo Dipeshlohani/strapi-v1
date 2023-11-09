@@ -17,10 +17,20 @@
       "repeatable": true,
       "component": "elements.corousel"
     },
-    "services": {
+    "important_link": {
       "type": "component",
       "repeatable": true,
-      "component": "elements.service-card"
+      "component": "elements.important-link"
+    },
+    "media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.our-media"
+    },
+    "about_us": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.about-us-card"
     }
   }
 }

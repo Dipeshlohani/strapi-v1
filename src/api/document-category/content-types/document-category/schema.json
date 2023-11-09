@@ -17,6 +17,12 @@
     },
     "slug": {
       "type": "uid"
+    },
+    "document": {
+      "displayName": "document",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.document"
     }
   }
 }

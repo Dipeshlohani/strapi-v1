@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_our_medias",
+  "info": {
+    "displayName": "OurMedia"
+  },
+  "options": {},
+  "attributes": {
+    "img_url": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

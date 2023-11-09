@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_elements_about_us_cards",
+  "info": {
+    "displayName": "AboutUsCard"
+  },
+  "options": {},
+  "attributes": {
+    "img_url": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
