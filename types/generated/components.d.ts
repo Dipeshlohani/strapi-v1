@@ -53,6 +53,28 @@ export interface ElementsCorousel extends Schema.Component {
   };
 }
 
+export interface ElementsDetailContents extends Schema.Component {
+  collectionName: 'components_elements_detail_contents';
+  info: {
+    displayName: 'DetailContents';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+  };
+}
+
+export interface ElementsDetailSummary extends Schema.Component {
+  collectionName: 'components_elements_detail_summaries';
+  info: {
+    displayName: 'DetailSummary';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
 export interface ElementsDocument extends Schema.Component {
   collectionName: 'components_elements_documents';
   info: {
@@ -88,6 +110,19 @@ export interface ElementsImportantLink extends Schema.Component {
   };
 }
 
+export interface ElementsNewTeam extends Schema.Component {
+  collectionName: 'components_elements_new_teams';
+  info: {
+    displayName: 'NewTeam';
+  };
+  attributes: {
+    name: Attribute.String;
+    designation: Attribute.String;
+    img_url: Attribute.Media;
+    duties: Attribute.Component<'elements.duty-and-role', true>;
+  };
+}
+
 export interface ElementsOurMedia extends Schema.Component {
   collectionName: 'components_elements_our_medias';
   info: {
@@ -95,6 +130,18 @@ export interface ElementsOurMedia extends Schema.Component {
   };
   attributes: {
     img_url: Attribute.Media;
+  };
+}
+
+export interface ElementsQuestionAnswers extends Schema.Component {
+  collectionName: 'components_elements_question_answers';
+  info: {
+    displayName: 'questionAnswers';
+    description: '';
+  };
+  attributes: {
+    answers: Attribute.RichText;
+    question: Attribute.String;
   };
 }
 
@@ -109,6 +156,17 @@ export interface ElementsServiceCard extends Schema.Component {
   };
 }
 
+export interface ElementsStats extends Schema.Component {
+  collectionName: 'components_elements_stats';
+  info: {
+    displayName: 'stats';
+  };
+  attributes: {
+    stat: Attribute.Integer;
+    description: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -116,11 +174,16 @@ declare module '@strapi/types' {
       'elements.about-us-card': ElementsAboutUsCard;
       'elements.button': ElementsButton;
       'elements.corousel': ElementsCorousel;
+      'elements.detail-contents': ElementsDetailContents;
+      'elements.detail-summary': ElementsDetailSummary;
       'elements.document': ElementsDocument;
       'elements.duty-and-role': ElementsDutyAndRole;
       'elements.important-link': ElementsImportantLink;
+      'elements.new-team': ElementsNewTeam;
       'elements.our-media': ElementsOurMedia;
+      'elements.question-answers': ElementsQuestionAnswers;
       'elements.service-card': ElementsServiceCard;
+      'elements.stats': ElementsStats;
     }
   }
 }

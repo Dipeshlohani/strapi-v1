@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_elements_new_teams",
+  "info": {
+    "displayName": "NewTeam"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "img_url": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "duties": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.duty-and-role"
+    }
+  }
+}

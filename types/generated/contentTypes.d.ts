@@ -482,6 +482,50 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -633,50 +677,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiAboutUsAboutUs extends Schema.SingleType {
   collectionName: 'about_uses';
   info: {
@@ -778,6 +778,45 @@ export interface ApiDashboardDashboard extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::dashboard.dashboard',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDetailPageDetailPage extends Schema.CollectionType {
+  collectionName: 'detail_pages';
+  info: {
+    singularName: 'detail-page';
+    pluralName: 'detail-pages';
+    displayName: 'DetailPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    img_url: Attribute.Media;
+    summary: Attribute.Component<'elements.detail-summary', true>;
+    contents: Attribute.Component<'elements.detail-contents', true>;
+    Featured: Attribute.Component<'elements.question-answers', true>;
+    stats: Attribute.Component<'elements.stats', true>;
+    KeyFacts: Attribute.RichText;
+    file: Attribute.Media;
+    FeaturedDetail: Attribute.Component<'elements.detail-contents', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::detail-page.detail-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::detail-page.detail-page',
       'oneToOne',
       'admin::user'
     > &
@@ -888,6 +927,39 @@ export interface ApiImportantLinkBlockImportantLinkBlock
   };
 }
 
+export interface ApiNewTeamCollectionNewTeamCollection
+  extends Schema.CollectionType {
+  collectionName: 'new_team_collections';
+  info: {
+    singularName: 'new-team-collection';
+    pluralName: 'new-team-collections';
+    displayName: 'NewTeamCollection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FirstLevel: Attribute.Component<'elements.new-team', true>;
+    SecondLevel: Attribute.Component<'elements.new-team', true>;
+    ThirdLevel: Attribute.Component<'elements.new-team', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::new-team-collection.new-team-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::new-team-collection.new-team-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOurMediaOurMedia extends Schema.SingleType {
   collectionName: 'our_medias';
   info: {
@@ -987,16 +1059,18 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::activity.activity': ApiActivityActivity;
       'api::dashboard.dashboard': ApiDashboardDashboard;
+      'api::detail-page.detail-page': ApiDetailPageDetailPage;
       'api::document.document': ApiDocumentDocument;
       'api::document-category.document-category': ApiDocumentCategoryDocumentCategory;
       'api::important-link-block.important-link-block': ApiImportantLinkBlockImportantLinkBlock;
+      'api::new-team-collection.new-team-collection': ApiNewTeamCollectionNewTeamCollection;
       'api::our-media.our-media': ApiOurMediaOurMedia;
       'api::subscribe-banner.subscribe-banner': ApiSubscribeBannerSubscribeBanner;
       'api::team.team': ApiTeamTeam;

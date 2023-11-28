@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_detail_summaries",
+  "info": {
+    "displayName": "DetailSummary"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

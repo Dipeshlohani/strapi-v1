@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_question_answers",
+  "info": {
+    "displayName": "questionAnswers",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "answers": {
+      "type": "richtext"
+    },
+    "question": {
+      "type": "string"
+    }
+  }
+}

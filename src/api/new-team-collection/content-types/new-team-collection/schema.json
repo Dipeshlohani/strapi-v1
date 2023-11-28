@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "new_team_collections",
+  "info": {
+    "singularName": "new-team-collection",
+    "pluralName": "new-team-collections",
+    "displayName": "NewTeamCollection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FirstLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.new-team"
+    },
+    "SecondLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.new-team"
+    },
+    "ThirdLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.new-team"
+    }
+  }
+}

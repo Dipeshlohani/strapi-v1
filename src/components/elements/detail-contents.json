@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_detail_contents",
+  "info": {
+    "displayName": "DetailContents"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

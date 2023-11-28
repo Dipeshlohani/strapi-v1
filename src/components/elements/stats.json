@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_stats",
+  "info": {
+    "displayName": "stats"
+  },
+  "options": {},
+  "attributes": {
+    "stat": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
