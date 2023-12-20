@@ -167,6 +167,62 @@ export interface ElementsStats extends Schema.Component {
   };
 }
 
+export interface TeamFirstLevel extends Schema.Component {
+  collectionName: 'components_team_first_levels';
+  info: {
+    displayName: 'firstLevel';
+    description: '';
+  };
+  attributes: {
+    img_url: Attribute.Media & Attribute.Required;
+    designation: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    duties: Attribute.Component<'elements.duty-and-role', true>;
+  };
+}
+
+export interface TeamFourthName extends Schema.Component {
+  collectionName: 'components_team_fourth_names';
+  info: {
+    displayName: 'FourthLevel';
+    description: '';
+  };
+  attributes: {
+    img_url: Attribute.Media & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    designation: Attribute.String & Attribute.Required;
+    duties: Attribute.Component<'elements.duty-and-role', true>;
+  };
+}
+
+export interface TeamSecondLevel extends Schema.Component {
+  collectionName: 'components_team_second_levels';
+  info: {
+    displayName: 'SecondLevel';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    designation: Attribute.String & Attribute.Required;
+    img_url: Attribute.Media & Attribute.Required;
+    duties: Attribute.Component<'elements.duty-and-role', true>;
+  };
+}
+
+export interface TeamThirdLevel extends Schema.Component {
+  collectionName: 'components_team_third_levels';
+  info: {
+    displayName: 'ThirdLevel';
+    description: '';
+  };
+  attributes: {
+    img_url: Attribute.Media & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    designation: Attribute.String & Attribute.Required;
+    duties: Attribute.Component<'elements.duty-and-role', true>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -184,6 +240,10 @@ declare module '@strapi/types' {
       'elements.question-answers': ElementsQuestionAnswers;
       'elements.service-card': ElementsServiceCard;
       'elements.stats': ElementsStats;
+      'team.first-level': TeamFirstLevel;
+      'team.fourth-name': TeamFourthName;
+      'team.second-level': TeamSecondLevel;
+      'team.third-level': TeamThirdLevel;
     }
   }
 }

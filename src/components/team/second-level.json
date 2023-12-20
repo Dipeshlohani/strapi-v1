@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_team_second_levels",
+  "info": {
+    "displayName": "SecondLevel",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "img_url": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "duties": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.duty-and-role"
+    }
+  }
+}

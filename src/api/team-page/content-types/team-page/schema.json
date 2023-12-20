@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "team_pages",
+  "info": {
+    "singularName": "team-page",
+    "pluralName": "team-pages",
+    "displayName": "TeamPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FirstLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "team.first-level"
+    },
+    "SecondLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "team.second-level"
+    },
+    "ThirdLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "team.third-level"
+    },
+    "FourthLevel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "team.fourth-name"
+    }
+  }
+}

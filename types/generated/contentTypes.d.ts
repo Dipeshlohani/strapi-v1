@@ -729,10 +729,23 @@ export interface ApiActivityActivity extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    description: Attribute.RichText;
     date: Attribute.Date;
     slug: Attribute.UID<'api::activity.activity', 'name'>;
     img_url: Attribute.Media;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbarBaloon';
+        }
+      >;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1047,6 +1060,69 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiTeamPageTeamPage extends Schema.SingleType {
+  collectionName: 'team_pages';
+  info: {
+    singularName: 'team-page';
+    pluralName: 'team-pages';
+    displayName: 'TeamPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FirstLevel: Attribute.Component<'team.first-level', true>;
+    SecondLevel: Attribute.Component<'team.second-level', true>;
+    ThirdLevel: Attribute.Component<'team.third-level', true>;
+    FourthLevel: Attribute.Component<'team.fourth-name', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-page.team-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-page.team-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'TEST';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1074,6 +1150,8 @@ declare module '@strapi/types' {
       'api::our-media.our-media': ApiOurMediaOurMedia;
       'api::subscribe-banner.subscribe-banner': ApiSubscribeBannerSubscribeBanner;
       'api::team.team': ApiTeamTeam;
+      'api::team-page.team-page': ApiTeamPageTeamPage;
+      'api::test.test': ApiTestTest;
     }
   }
 }

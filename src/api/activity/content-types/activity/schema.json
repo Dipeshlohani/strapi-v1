@@ -15,9 +15,6 @@
     "name": {
       "type": "string"
     },
-    "description": {
-      "type": "richtext"
-    },
     "date": {
       "type": "date"
     },
@@ -26,11 +23,26 @@
       "targetField": "name"
     },
     "img_url": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
