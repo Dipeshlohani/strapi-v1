@@ -130,3 +130,5 @@ dist
 
 meilisearch
 build
+/public/uploads
+/uploads

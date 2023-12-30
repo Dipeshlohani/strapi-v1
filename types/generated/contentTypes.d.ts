@@ -732,18 +732,18 @@ export interface ApiActivityActivity extends Schema.CollectionType {
     date: Attribute.Date;
     slug: Attribute.UID<'api::activity.activity', 'name'>;
     img_url: Attribute.Media;
+    summary: Attribute.Component<'elements.detail-summary', true>;
+    contents: Attribute.Component<'elements.detail-contents', true>;
+    Featured: Attribute.Component<'elements.question-answers', true>;
+    stats: Attribute.Component<'elements.stats', true>;
+    KeyFacts: Attribute.RichText;
+    file: Attribute.Media;
+    FeaturedDetail: Attribute.Component<'elements.detail-contents', true>;
     description: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'toolbarBaloon';
-        }
-      >;
-    content: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
         }
       >;
     createdAt: Attribute.DateTime;
@@ -803,7 +803,7 @@ export interface ApiDetailPageDetailPage extends Schema.CollectionType {
   info: {
     singularName: 'detail-page';
     pluralName: 'detail-pages';
-    displayName: 'DetailPage';
+    displayName: 'ActivityDetailPage';
     description: '';
   };
   options: {

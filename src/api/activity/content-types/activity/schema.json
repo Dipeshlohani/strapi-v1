@@ -26,21 +26,49 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
+    },
+    "summary": {
+      "displayName": "DetailSummary",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.detail-summary"
+    },
+    "contents": {
+      "displayName": "DetailContents",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.detail-contents"
+    },
+    "Featured": {
+      "displayName": "questionAnswers",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.question-answers"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.stats"
+    },
+    "KeyFacts": {
+      "type": "richtext"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["files"]
+    },
+    "FeaturedDetail": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.detail-contents"
     },
     "description": {
       "type": "customField",
       "options": {
         "preset": "toolbarBaloon"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
-    },
-    "content": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar"
       },
       "customField": "plugin::ckeditor5.CKEditor"
     }
